@@ -15,16 +15,19 @@ source:
     - dlopen_test.patch  # [osx]
 
 build:
-  number: 0
-  skip: True  # [win]  
+  number: 1
+  skip: True  # [win]
 
 requirements:
   build:
     - m4
-    - gmp 6.1.*
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - gmp
     - toolchain3
   run:
-    - gmp 6.1.*
+    - gmp
 
 test:
   commands:
@@ -34,12 +37,12 @@ test:
     - test -f ${PREFIX}/lib/libnettle.a  # [linux]
     - test -f ${PREFIX}/lib/libhogweed.a  # [linux]
     - test -f ${PREFIX}/lib/libnettle.dylib  # [osx]
-    - test -f ${PREFIX}/lib/libhogweed.dylib  # [osx]	
-   
-    
+    - test -f ${PREFIX}/lib/libhogweed.dylib  # [osx]
+
+
 about:
   home: https://www.lysator.liu.se/~nisse/nettle/
-  license: GPL 2 and LGPL3 
+  license: GPL 2 and LGPL3
   license_family: GPL
   license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
   summary: 'Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context'
@@ -50,4 +53,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - Cashalow
+    - sachalau
