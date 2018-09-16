@@ -15,7 +15,7 @@ source:
     - dlopen_test.patch  # [osx]
 
 build:
-  number: 1
+  number: 1001
   skip: True  # [win]
 
 requirements:
@@ -25,7 +25,6 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - gmp
-    - toolchain3
   run:
     - gmp
 
