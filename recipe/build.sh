@@ -1,9 +1,8 @@
 #!/bin/bash
 
-if [[ ${CC} =~ .*gcc.* && ! ${c_compiler} =~ .*toolchain.* ]]; then
+if [[ ${CC} =~ .*gcc.* && ${c_compiler} =~ .*toolchain.* ]]; then
     export CFLAGS="${CFLAGS} -std=c99 "
 fi
-
 
 # Building with conda-forge gmp causes a strange segfault.  
 # Using mini-gmp seems to solve the issue and gnutls still works
