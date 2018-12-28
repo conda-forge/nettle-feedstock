@@ -6,6 +6,8 @@ fi
 # See: https://gitlab.com/gnutls/gnutls/issues/665
 export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
 
+# Building with conda-forge gmp causes a strange segfault.
+# Using mini-gmp seems to solve the issue and gnutls still works.
 ./configure --prefix="${PREFIX}"              \
             --libdir="${PREFIX}/lib/"         \
             --with-lib-path="${PREFIX}/lib/"  \
