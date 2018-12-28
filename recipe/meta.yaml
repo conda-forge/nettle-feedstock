@@ -14,7 +14,7 @@ source:
     - dlopen_test.patch  # [osx]
 
 build:
-  number: 1001
+  number: 1002
   skip: True  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=nettle
@@ -22,25 +22,19 @@ build:
 
 requirements:
   build:
-    - m4
-    - autoconf
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-  host:
-    #- gmp
-  run:
-    #- gmp
+    - autoconf
+    - m4
+    - make
 
 test:
   commands:
-    - conda inspect linkages -p $PREFIX nettle
-    - test -f ${PREFIX}/lib/libnettle.so  # [linux]
-    - test -f ${PREFIX}/lib/libhogweed.so  # [linux]
-    - test -f ${PREFIX}/lib/libnettle.a  # [linux]
-    - test -f ${PREFIX}/lib/libhogweed.a  # [linux]
-    - test -f ${PREFIX}/lib/libnettle.dylib  # [osx]
-    - test -f ${PREFIX}/lib/libhogweed.dylib  # [osx]
-
+    - test -f ${PREFIX}/lib/libnettle${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libhogweed${SHLIB_EXT}
+    - test -f ${PREFIX}/lib/libnettle.a
+    - test -f ${PREFIX}/lib/libhogweed.a
+  downstreams:
+    - gnutls
 
 about:
   home: https://www.lysator.liu.se/~nisse/nettle/
