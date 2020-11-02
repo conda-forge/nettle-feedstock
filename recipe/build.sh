@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
 
 if [[ ${CC} =~ .*gcc.* && ${c_compiler} =~ .*toolchain.* ]]; then
     export CFLAGS="${CFLAGS} -std=c99 "
@@ -14,4 +16,6 @@ export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
             --enable-mini-gmp || { cat config.log; exit 1; }
 make -j${CPU_COUNT} ${VERBOSE_AT}
 make install ${VERBOSE_AT}
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
 make check
+fi
