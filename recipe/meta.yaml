@@ -14,7 +14,7 @@ source:
     - dlopen_test.patch  # [osx]
 
 build:
-  number: 1002
+  number: 0
   skip: True  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=nettle
