@@ -1,7 +1,12 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/libtool/build-aux/config.* .
 
 if [[ ${CC} =~ .*gcc.* && ${c_compiler} =~ .*toolchain.* ]]; then
     export CFLAGS="${CFLAGS} -std=c99 "
+fi
+if [[ "$target_platform" == "osx-arm64" ]]; then
+  CONFIGURE_ARGS="$CONFIGURE_ARGS --disable-assembler"
 fi
 # See: https://gitlab.com/gnutls/gnutls/issues/665
 export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
@@ -12,8 +17,11 @@ export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
 ./configure --prefix="${PREFIX}"              \
             --libdir="${PREFIX}/lib/"         \
             --with-lib-path="${PREFIX}/lib/"  \
+            $CONFIGURE_ARGS \
             --disable-openssl \
             --enable-mini-gmp || { cat config.log; exit 1; }
 make -j${CPU_COUNT} ${VERBOSE_AT}
 make install ${VERBOSE_AT}
-make check
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
+  make check
+fi
