@@ -8,9 +8,11 @@ export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
 
 # Building with conda-forge gmp causes a strange segfault.
 # Using mini-gmp seems to solve the issue and gnutls still works.
+# --disable-openssl: do not include openssl glue in the benchmark program
 ./configure --prefix="${PREFIX}"              \
             --libdir="${PREFIX}/lib/"         \
             --with-lib-path="${PREFIX}/lib/"  \
+            --disable-openssl \
             --enable-mini-gmp || { cat config.log; exit 1; }
 make -j${CPU_COUNT} ${VERBOSE_AT}
 make install ${VERBOSE_AT}
