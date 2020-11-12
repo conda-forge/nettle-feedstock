@@ -1,6 +1,6 @@
 {% set name = "nettle" %}
-{% set version = "3.4.1" %}
-{% set sha256 = "f941cf1535cd5d1819be5ccae5babef01f6db611f9b5a777bae9c7604b8a92ad" %}
+{% set version = "3.6" %}
+{% set sha256 = "d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1" %}
 
 package:
   name: {{ name|lower }}
@@ -10,11 +10,9 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://ftp.gnu.org/gnu/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - dlopen_test.patch  # [osx]
 
 build:
-  number: 1002
+  number: 0
   skip: True  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=nettle
@@ -51,3 +49,4 @@ about:
 extra:
   recipe-maintainers:
     - sachalau
+    - erykoff
