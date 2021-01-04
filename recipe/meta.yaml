@@ -1,6 +1,6 @@
 {% set name = "nettle" %}
-{% set version = "3.6" %}
-{% set sha256 = "d24c0d0f2abffbc8f4f34dcf114b0f131ec3774895f3555922fe2f40f3d5e3f1" %}
+{% set version = "3.7" %}
+{% set sha256 = "f001f64eb444bf13dd91bceccbc20acbc60c4311d6e2b20878452eb9a9cec75a" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=nettle
     - {{ pin_subpackage('nettle', max_pin='x.x') }}
@@ -39,9 +39,9 @@ about:
   home: https://www.lysator.liu.se/~nisse/nettle/
   license: GPL 2 and LGPL3
   license_family: GPL
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: 'Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context'
-  description: 'Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context. In crypto toolkits for object-oriented languages (C++, Python, Pike, ...), in applications like LSH or GNUPG, or even in kernel space. Simple, fast, extensible JSON encoder/decoder for Python'
+  license_file: {{ environ["RECIPE_DIR"] }}/LICENSE
+  summary: Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context
+  description: Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context. In crypto toolkits for object-oriented languages (C++, Python, Pike, ...), in applications like LSH or GNUPG, or even in kernel space. Simple, fast, extensible JSON encoder/decoder for Python
 
   doc_url: https://www.lysator.liu.se/~nisse/nettle/nettle.html
   dev_url: https://git.lysator.liu.se/nettle/nettle
