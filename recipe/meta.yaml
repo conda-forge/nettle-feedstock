@@ -25,7 +25,7 @@ requirements:
     - autoconf
     - m4
     - make
-    - binutils>=2.36
+    - binutils >=2.36
 
 test:
   commands:
