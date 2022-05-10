@@ -9,7 +9,7 @@ if [[ "$target_platform" == "osx-arm64" ]]; then
   CONFIGURE_ARGS="$CONFIGURE_ARGS --disable-assembler"
 fi
 # See: https://gitlab.com/gnutls/gnutls/issues/665
-export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
+# export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
 
 # Building with conda-forge gmp causes a strange segfault.
 # Using mini-gmp seems to solve the issue and gnutls still works.
