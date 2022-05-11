@@ -16,7 +16,7 @@ build:
   skip: true  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=nettle
-    - {{ pin_subpackage('nettle', max_pin='x.x') }}
+    - {{ pin_subpackage('nettle', max_pin='x.x.x') }}
 
 requirements:
   build:
