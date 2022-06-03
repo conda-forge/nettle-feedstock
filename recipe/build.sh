@@ -19,6 +19,7 @@ export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
             --with-lib-path="${PREFIX}/lib/"  \
             $CONFIGURE_ARGS \
             --disable-openssl \
+            --disable-static \
             --enable-mini-gmp || { cat config.log; exit 1; }
 make -j${CPU_COUNT} ${VERBOSE_AT}
 make install ${VERBOSE_AT}
