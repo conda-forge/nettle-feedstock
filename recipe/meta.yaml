@@ -1,6 +1,6 @@
 {% set name = "nettle" %}
-{% set version = "3.7" %}
-{% set sha256 = "f001f64eb444bf13dd91bceccbc20acbc60c4311d6e2b20878452eb9a9cec75a" %}
+{% set version = "3.8" %}
+{% set sha256 = "7576c68481c198f644b08c160d1a4850ba9449e308069455b5213319f234e8e6" %}
 
 package:
   name: {{ name|lower }}
@@ -30,10 +30,10 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libnettle${SHLIB_EXT}
     - test -f ${PREFIX}/lib/libhogweed${SHLIB_EXT}
-    - test -f ${PREFIX}/lib/libnettle.a
-    - test -f ${PREFIX}/lib/libhogweed.a
-  downstreams:
-    - gnutls
+    - test ! -f ${PREFIX}/lib/libnettle.a
+    - test ! -f ${PREFIX}/lib/libhogweed.a
+#  downstreams:
+#    - gnutls
 
 about:
   home: https://www.lysator.liu.se/~nisse/nettle/
