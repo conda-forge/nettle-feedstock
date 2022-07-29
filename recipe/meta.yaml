@@ -1,6 +1,6 @@
 {% set name = "nettle" %}
-{% set version = "3.8" %}
-{% set sha256 = "7576c68481c198f644b08c160d1a4850ba9449e308069455b5213319f234e8e6" %}
+{% set version = "3.8.1" %}
+{% set sha256 = "364f3e2b77cd7dcde83fd7c45219c834e54b0c75e428b6f894a23d12dd41cbfe" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     # https://abi-laboratory.pro/?view=timeline&l=nettle
