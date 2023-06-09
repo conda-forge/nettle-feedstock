@@ -5,13 +5,11 @@ VERBOSE_AT:
 c_compiler:
 - clang
 c_compiler_version:
-- '13'
+- '15'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-gnutls:
-- '3.6'
 macos_machine:
 - arm64-apple-darwin20.0.0
 target_platform:
