@@ -1,6 +1,6 @@
 {% set name = "nettle" %}
-{% set version = "3.9.1" %}
-{% set sha256 = "ccfeff981b0ca71bbd6fbcb054f407c60ffb644389a5be80d6716d5b550c6ce3" %}
+{% set version = "3.10.1" %}
+{% set sha256 = "b0fcdd7fc0cdea6e80dcf1dd85ba794af0d5b4a57e26397eee3bc193272d9132" %}
 
 package:
   name: {{ name|lower }}
@@ -22,6 +22,7 @@ requirements:
   build:
     - libtool  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - autoconf
     - m4
     - make
