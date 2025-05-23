@@ -1,5 +1,3 @@
-VERBOSE_AT:
-- V=1
 c_compiler:
 - gcc
 c_compiler_version:
@@ -16,7 +14,5 @@ channel_targets:
 - conda-forge main
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64:alma9
-nettle:
-- '3.9'
 target_platform:
 - linux-aarch64
