@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nettle-feedstoc
 
 Home: https://www.lysator.liu.se/~nisse/nettle/
 
-Package license: GPL 2 and LGPL3
+Package license: GPL-2.0-or-later OR LGPL-3.0-or-later
 
 Summary: Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context
 
@@ -13,7 +13,9 @@ Development: https://git.lysator.liu.se/nettle/nettle
 
 Documentation: https://www.lysator.liu.se/~nisse/nettle/nettle.html
 
-Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context. In crypto toolkits for object-oriented languages (C++, Python, Pike, ...), in applications like LSH or GNUPG, or even in kernel space. Simple, fast, extensible JSON encoder/decoder for Python
+Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context.
+In crypto toolkits for object-oriented languages (C++, Python, Pike, ...), in applications like LSH or GNUPG, or even in kernel space.
+Simple, fast, extensible JSON encoder/decoder for Python
 
 Current build status
 ====================
@@ -148,7 +150,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance

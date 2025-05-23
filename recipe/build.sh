@@ -18,9 +18,7 @@ export CPPFLAGS="${CPPFLAGS//-DNDEBUG/}"
             --libdir="${PREFIX}/lib/"         \
             --with-lib-path="${PREFIX}/lib/"  \
             $CONFIGURE_ARGS \
-            --disable-openssl \
-            --disable-static \
-            --enable-mini-gmp || { cat config.log; exit 1; }
+            --disable-static || { cat config.log; exit 1; }
 make -j${CPU_COUNT} ${VERBOSE_AT}
 make install ${VERBOSE_AT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then

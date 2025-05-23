@@ -1,0 +1,69 @@
+schema_version: 1
+
+context:
+  name: nettle
+  version: 3.10.1
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  - url: https://ftp.gnu.org/gnu/${{ name }}/${{ name }}-${{ version }}.tar.gz
+    sha256: b0fcdd7fc0cdea6e80dcf1dd85ba794af0d5b4a57e26397eee3bc193272d9132
+  - url: https://git.lysator.liu.se/nettle/nettle/-/raw/master/COPYING.LESSERv3
+    sha256: a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c
+  - url: https://git.lysator.liu.se/nettle/nettle/-/raw/master/COPYINGv2
+    sha256: 8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643
+  - url: https://git.lysator.liu.se/nettle/nettle/-/raw/master/COPYINGv3
+    sha256: e6037104443f9a7829b2aa7c5370d0789a7bda3ca65a0b904cdc0c2e285d9195
+
+build:
+  number: 0
+  skip: win
+
+requirements:
+  build:
+    - if: unix
+      then: libtool
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - autoconf
+    - m4
+    - make
+  host:
+    - gmp
+  ignore_run_exports:
+    from_package:
+      # This is only needed for the test suite
+      - ${{ compiler('cxx') }}
+  run_exports:
+    - ${{ pin_subpackage('nettle', upper_bound='x.x') }}
+
+tests:
+  - script:
+      - test -f ${PREFIX}/lib/libnettle${SHLIB_EXT}
+      - test -f ${PREFIX}/lib/libhogweed${SHLIB_EXT}
+      - test ! -f ${PREFIX}/lib/libnettle.a
+      - test ! -f ${PREFIX}/lib/libhogweed.a
+
+about:
+  license: GPL-2.0-or-later OR LGPL-3.0-or-later
+  license_file:
+    - COPYINGv2
+    - COPYINGv3
+    - COPYING.LESSERv3
+  summary: Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context
+  description: |
+    Nettle is a low-level cryptographic library that is designed to fit easily in more or less any context.
+    In crypto toolkits for object-oriented languages (C++, Python, Pike, ...), in applications like LSH or GNUPG, or even in kernel space.
+    Simple, fast, extensible JSON encoder/decoder for Python
+  homepage: https://www.lysator.liu.se/~nisse/nettle/
+  repository: https://git.lysator.liu.se/nettle/nettle
+  documentation: https://www.lysator.liu.se/~nisse/nettle/nettle.html
+
+extra:
+  recipe-maintainers:
+    - sachalau
+    - erykoff
