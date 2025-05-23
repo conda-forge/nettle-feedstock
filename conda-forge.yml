@@ -8,4 +8,3 @@ conda_build:
   pkg_format: '2'
 test: native_and_emulated
 conda_build_tool: rattler-build
-conda_install_tool: pixi
