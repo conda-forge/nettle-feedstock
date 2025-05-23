@@ -27,12 +27,17 @@ requirements:
     - if: unix
       then: libtool
     - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
     - autoconf
     - m4
     - make
   host:
     - gmp
+  ignore_run_exports:
+    from_package:
+      # This is only needed for the test suite
+      - ${{ compiler('cxx') }}
   run_exports:
     - ${{ pin_subpackage('nettle', upper_bound='x.x') }}
 
