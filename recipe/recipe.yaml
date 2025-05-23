@@ -31,6 +31,8 @@ requirements:
     - autoconf
     - m4
     - make
+  host:
+    - gmp
   run_exports:
     - ${{ pin_subpackage('nettle', upper_bound='x.x') }}
 
