@@ -197,5 +197,5 @@ Feedstock Maintainers
 =====================
 
 * [@erykoff](https://github.com/erykoff/)
-* [@saschako812](https://github.com/saschako812/)
+* [@sachalau](https://github.com/sachalau/)
 
