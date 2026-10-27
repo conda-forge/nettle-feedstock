@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: nettle
-  version: 3.10.1
+  version: "4.0"
 
 package:
   name: ${{ name|lower }}
@@ -14,10 +14,10 @@ source:
   # downloaded separately. The previous per-file downloads pointed at the
   # moving `master` branch and broke once upstream edited those files.
   - url: https://ftp.gnu.org/gnu/${{ name }}/${{ name }}-${{ version }}.tar.gz
-    sha256: b0fcdd7fc0cdea6e80dcf1dd85ba794af0d5b4a57e26397eee3bc193272d9132
+    sha256: 3addbc00da01846b232fb3bc453538ea5468da43033f21bb345cb1e9073f5094
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 requirements:
